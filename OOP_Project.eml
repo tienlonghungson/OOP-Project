@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="activation-1.1.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/activation-1.1.1.jar!/"/>
+	</lib>
+	<lib name="commons-codec-1.13.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/commons-codec-1.13.jar!/"/>
+	</lib>
+	<lib name="commons-collections4-4.4.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/commons-collections4-4.4.jar!/"/>
+	</lib>
+	<lib name="commons-compress-1.19.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/commons-compress-1.19.jar!/"/>
+	</lib>
+	<lib name="commons-logging-1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/commons-logging-1.2.jar!/"/>
+	</lib>
+	<lib name="commons-math3-3.6.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/commons-math3-3.6.1.jar!/"/>
+	</lib>
+	<lib name="curvesapi-1.06.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/curvesapi-1.06.jar!/"/>
+	</lib>
+	<lib name="jaxb-api-2.3.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/jaxb-api-2.3.1.jar!/"/>
+	</lib>
+	<lib name="jaxb-core-2.3.0.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/jaxb-core-2.3.0.1.jar!/"/>
+	</lib>
+	<lib name="jaxb-impl-2.3.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/jaxb-impl-2.3.2.jar!/"/>
+	</lib>
+	<lib name="junit-4.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/junit-4.12.jar!/"/>
+	</lib>
+	<lib name="log4j-1.2.17.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/log4j-1.2.17.jar!/"/>
+	</lib>
+	<lib name="poi-4.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/poi-4.1.2.jar!/"/>
+	</lib>
+	<lib name="poi-examples-4.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/poi-examples-4.1.2.jar!/"/>
+	</lib>
+	<lib name="poi-excelant-4.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/poi-excelant-4.1.2.jar!/"/>
+	</lib>
+	<lib name="poi-ooxml-4.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/poi-ooxml-4.1.2.jar!/"/>
+	</lib>
+	<lib name="poi-ooxml-schemas-4.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/poi-ooxml-schemas-4.1.2.jar!/"/>
+	</lib>
+	<lib name="poi-scratchpad-4.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/poi-scratchpad-4.1.2.jar!/"/>
+	</lib>
+	<lib name="SparseBitSet-1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/SparseBitSet-1.2.jar!/"/>
+	</lib>
+	<lib name="xmlbeans-3.1.0.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib_excel/xmlbeans-3.1.0.jar!/"/>
+	</lib>
+	<levels>
+		<level name="JavaFx" value="project"/>
+	</levels>
+</component>

@@ -1,0 +1,6 @@
+NHÓM 0-19
+14035: VN-Index hôm nay giao dịch tạo một cây nến thân rất dài màu đen với khối lượng giao dịch tăng lên gần mức 100 triệu cổ phiếu.
+14104: VN-Index hôm nay giao dịch tạo một cây nến thân dài màu đen với khối lượng giao dịch giảm khá so với ngày hôm qua.
+14338: VN-Index hôm nay giao dịch tạo thành cây nến thân nhỏ màu đen với khối lượng giao dịch tăng so với ngày hôm qua.
+NHÓM 0-7
+16822:  VN-Index hôm nay giao dịch tạo thành cây nến thân nhỏ màu xanh nhưng giá đóng cửa thấp hơn so với mức giá cao nhất.
