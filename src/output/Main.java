@@ -1,4 +1,5 @@
 package output;
+import chart.charts.VNINDEXChart;
 import process.*;
 import chart.Plot;
 import javafx.application.Application;
@@ -22,6 +23,13 @@ import process.Export1;
 
 public class Main extends Application {
 	Stage windows;
+
+//	public void start(Stage stage){
+//		VNINDEXChart vnindexChart = new VNINDEXChart();
+//		Scene scene = new Scene(vnindexChart.buildChart());
+//		stage.setScene(scene);
+//		stage.show();
+//	}
 
 	public static void main(String[] args) {
 		launch(args);
@@ -123,10 +131,10 @@ public class Main extends Application {
 			@Override
 			public void handle(ActionEvent e) {
 				newspaper.setText("");
-				String daystring = dayText.getText();
-				String sharestring = shareText.getText();
-				String[] days = daystring.split("; ");
-				String[] shares = sharestring.split("; ");
+				String dayString = dayText.getText();
+				String shareString = shareText.getText();
+				String[] days = dayString.split("; ");
+				String[] shares = shareString.split("; ");
 				Sentences.listSentences.clear();
 				for (String day : days) {
 					Sentences.listSentences.add(day);

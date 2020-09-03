@@ -2,7 +2,6 @@ package chart;
 
 import chart.charts.*;
 import javafx.scene.layout.Pane;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,5 +23,4 @@ public class Plot {
         
         return pane;
     }
-
 }
