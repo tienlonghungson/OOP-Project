@@ -1,5 +1,6 @@
 package chart.candlestickchart;
 
+import javafx.event.EventHandler;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.NumberAxis;
@@ -91,6 +92,7 @@ public class CandleStickChart extends XYChart<String, Number> {
 
                     // update candle
                     candle.update(close - y, high - y, low - y, candleWidth);
+                    candle.updateTooltip(item.getYValue().doubleValue(), extra.getClose(), extra.getHigh(), extra.getLow());
                     // position the candle
                     candle.setLayoutX(x);
                     candle.setLayoutY(y);
@@ -113,8 +115,17 @@ public class CandleStickChart extends XYChart<String, Number> {
     @Override
     protected void dataItemAdded(Series<String, Number> series, int itemIndex, Data<String, Number> item) {
         Node candle = createCandle(getData().indexOf(series), item, itemIndex);
-        getPlotChildren().add(candle);
-      
+        // add new candle to children to display : getPlotChildren().add(candle);
+        if (shouldAnimate()) {
+            candle.setOpacity(0);
+            getPlotChildren().add(candle);
+            // fade in new candle
+            FadeTransition ft = new FadeTransition(Duration.millis(500), candle);
+            ft.setToValue(1);
+            ft.play();
+        } else {
+            getPlotChildren().add(candle);
+        }
         // always draw average line on top
         if (series.getNode() != null) {
             series.getNode().toFront();
@@ -124,17 +135,43 @@ public class CandleStickChart extends XYChart<String, Number> {
     @Override
     protected void dataItemRemoved(Data<String, Number> item, Series<String, Number> series) {
         final Node candle = item.getNode();
+        // remove candle : getPlotChildren().remove(candle);
+        if (shouldAnimate()) {
+            // fade out old candle
+            FadeTransition ft = new FadeTransition(Duration.millis(500), candle);
+            ft.setToValue(0);
+            ft.setOnFinished(actionEvent -> getPlotChildren().remove(candle));
+//            ft.setOnFinished(new EventHandler<>() {
+//                @Override
+//                public void handle(ActionEvent actionEvent) {
+//                    getPlotChildren().remove(candle);
+//                }
+//            });
+            ft.play();
+        } else {
             getPlotChildren().remove(candle);
+        }
         
     }
+
 
     @Override
     protected void seriesAdded(Series<String, Number> series, int seriesIndex) {
         // handle any data already in series
         for (int j = 0; j < series.getData().size(); j++) {
             Data item = series.getData().get(j);
-            Node candle = createCandle(seriesIndex, item, j);      
-            getPlotChildren().add(candle);
+            Node candle = createCandle(seriesIndex, item, j);
+            // add series : getPlotChildren().add(candle);
+            if (shouldAnimate()) {
+                candle.setOpacity(0);
+                getPlotChildren().add(candle);
+                // fade in new candle
+                FadeTransition ft = new FadeTransition(Duration.millis(500), candle);
+                ft.setToValue(1);
+                ft.play();
+            } else {
+                getPlotChildren().add(candle);
+            }
          
         }
         // create series path
@@ -144,12 +181,27 @@ public class CandleStickChart extends XYChart<String, Number> {
         getPlotChildren().add(seriesPath);
     }
 
+
     @Override
     protected void seriesRemoved(Series<String, Number> series) {
         // remove all candle nodes
         for (XYChart.Data<String, Number> d : series.getData()) {
             final Node candle = d.getNode();
+            // remove one by one candle in a series :  getPlotChildren().remove(candle);
+            if (shouldAnimate()) {
+                // fade out old candle
+                FadeTransition ft = new FadeTransition(Duration.millis(500), candle);
+                ft.setToValue(0);
+                ft.setOnFinished(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        getPlotChildren().remove(candle);
+                    }
+                });
+                ft.play();
+            } else {
                 getPlotChildren().remove(candle);
+            }
         }
     }
 

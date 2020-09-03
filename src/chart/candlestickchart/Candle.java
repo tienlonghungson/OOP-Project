@@ -1,6 +1,7 @@
 package chart.candlestickchart;
 
 import javafx.scene.Group;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Line;
 
@@ -9,17 +10,26 @@ import javafx.scene.shape.Line;
  */
 class Candle extends Group {
 
+    /**
+     * highLowLine displays the line of low and high value
+     * bar displays the rectangle of open and close value
+     * tooltip displays the information ( data ) of one candle when mouse enter candle zone
+     */
     private Line highLowLine = new Line();
     private Region bar = new Region();
     private String seriesStyleClass;
     private String dataStyleClass;
     private boolean openAboveClose = true;
+    private Tooltip tooltip = new Tooltip();
 
     Candle(String seriesStyleClass, String dataStyleClass) {
         setAutoSizeChildren(false);
         getChildren().addAll(highLowLine, bar);
 
         setSeriesAndDataStyleClasses(seriesStyleClass, dataStyleClass);
+
+        tooltip.setGraphic(new TooltipContent());
+        Tooltip.install(bar, tooltip);
     }
 
     public void setSeriesAndDataStyleClasses(String seriesStyleClass, String dataStyleClass) {
@@ -41,6 +51,12 @@ class Candle extends Group {
         }
     }
 
+    public void updateTooltip(double open, double close, double high, double low) {
+        TooltipContent tooltipContent = (TooltipContent) tooltip.getGraphic();
+        tooltipContent.update(open, close, high, low);
+//                    tooltip.setText("Open: "+open+"\nClose: "+close+"\nHigh: "+high+"\nLow: "+low);
+    }
+
     private void updateStyleClasses() {
         getStyleClass().setAll("candlestick-candle", seriesStyleClass, dataStyleClass);
         highLowLine.getStyleClass().setAll("candlestick-line", seriesStyleClass, dataStyleClass,
@@ -48,4 +64,5 @@ class Candle extends Group {
         bar.getStyleClass().setAll("candlestick-bar", seriesStyleClass, dataStyleClass,
                 openAboveClose ? "open-above-close" : "close-above-open");
     }
+
 }
