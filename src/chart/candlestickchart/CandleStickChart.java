@@ -79,6 +79,8 @@ public class CandleStickChart extends XYChart<String, Number> {
                 Data<String, Number> item = iTer.next();
                 double x = getXAxis().getDisplayPosition(getCurrentDisplayedXValue(item));
                 double y = getYAxis().getDisplayPosition(getCurrentDisplayedYValue(item));
+                // (x, y) represents the coordinate of open value, also mark as the original coordinate of each candle
+                // means that each candle take (x, y) as (0, 0), then use the value offset below to determine the coordinate of close, high, low
                 Node itemNode = item.getNode();
                 CandleStickExtraValues extra = (CandleStickExtraValues) item.getExtraValue();
                 if (itemNode instanceof Candle && extra != null) {
